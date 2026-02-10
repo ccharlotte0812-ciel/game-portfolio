@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文案/剧情策划作品集 - 夏璐婷</title>
+
+    <style>
+    :root {
+        --primary-color: #2c3e50;
+        --accent-color: #e67e22;
+        --sidebar-bg: #2c3e50;
+        --sidebar-text: #ecf0f1;
+        --bg-color: #f5f7fa;
+        --card-bg: #ffffff;
+        --text-main: #333333;
+        --text-secondary: #666666;
+        --border-radius: 8px;
+        --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    body {
+        font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+    }
+
+/* 1. 把 flex 改回 block，这样更稳定 */
+    .app-container { 
+        display: block; /* 原来是 flex，改为 block */
+        min-height: 100vh; 
+    }
+
+    /* 2. 强制给右侧内容加左边距 */
+    .main-content {
+        margin-left: 260px !important; /* 强制留出侧边栏的位置 */
+        padding: 40px 60px;
+        max-width: 900px;
+        position: relative; /* 确保层级正确 */
+    }
+    
+    /* 3. 手机端适配保持不变 */
+    @media (max-width: 850px) {
+        .sidebar { display: none; }
+        .main-content { margin-left: 0 !important; padding: 20px; } /* 手机上取消左边距 */
+        .mobile-header { display: block; }
+    }
+    /* 左侧侧边栏 */
+    .sidebar {
+        width: 260px;
+        background-color: var(--sidebar-bg);
+        color: var(--sidebar-text);
+        position: fixed;
+        top: 0; left: 0; height: 100vh;
+        overflow-y: auto;
+        padding: 30px 0;
+        z-index: 1000;
+        display: flex; flex-direction: column;
+    }
+    .sidebar-header { padding: 0 25px 20px 25px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
+    .logo { font-size: 1.4rem; font-weight: bold; color: #fff; display: block; }
+    .logo-sub { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    
+    .nav-links { list-style: none; padding: 0; margin: 0; flex: 1; }
+    .nav-links li { margin-bottom: 5px; }
+    .nav-links a {
+        display: block; padding: 10px 25px;
+        color: rgba(255,255,255,0.7); text-decoration: none;
+        font-size: 0.9rem; transition: all 0.3s;
+        border-left: 4px solid transparent;
+    }
+    .nav-links a:hover { background-color: rgba(0,0,0,0.2); color: #fff; border-left-color: var(--accent-color); }
+    .nav-group-title {
+        padding: 15px 25px 5px 25px; font-size: 0.75rem; text-transform: uppercase;
+        color: rgba(255,255,255,0.3); font-weight: bold; margin-top: 5px;
+    }
+    .sidebar-footer { padding: 20px 25px; font-size: 0.8rem; color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.1); }
+
+
+    /* 移动端顶部导航 (默认隐藏) */
+    .mobile-header {
+        display: none; background: #fff; padding: 15px;
+        position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .mobile-nav { display: flex; gap: 15px; overflow-x: auto; }
+    .mobile-nav a { text-decoration: none; color: #666; font-size: 0.9rem; white-space: nowrap; }
+
+    /* 原有卡片样式保留 */
+    .profile-card, .portfolio-item {
+        background: var(--card-bg); border-radius: var(--border-radius);
+        padding: 30px; margin-bottom: 30px; box-shadow: var(--shadow);
+    }
+    .profile-card { border-left: 5px solid var(--accent-color); padding: 40px; }
+    .section-title {
+        border-bottom: 2px solid #ddd; padding-bottom: 10px;
+        margin-bottom: 25px; margin-top: 60px; color: var(--primary-color); font-size: 1.5rem;
+    }
+    /* 其他通用样式 */
+    .tag-pill { background: #fff3e0; color: #e67e22; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 5px; }
+    .confidential-stamp { border: 2px solid #e74c3c; color: #e74c3c; padding: 2px 8px; transform: rotate(-5deg); font-size: 0.8rem; display: inline-block; margin-left: 10px; }
+    
+    /* 响应式 */
+    @media (max-width: 850px) {
+        .sidebar { display: none; }
+        .main-content { margin-left: 0; padding: 20px; }
+        .mobile-header { display: block; }
+    }
+</style>
+
+</head>
+<body>
+
+<header class="mobile-header">
+    <div style="font-weight:bold; margin-bottom:10px; color:var(--primary-color);">夏璐婷 / Portfolio</div>
+    <nav class="mobile-nav">
+        <a href="#about">关于我</a>
+        <a href="#project-donotstarve">项目经历</a>
+        <a href="#demo">互动叙事</a>
+        <a href="#content01">原创</a>
+        <a href="#english-writing">双语</a>
+    </nav>
+</header>
+
+<div class="app-container">
+    
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span class="logo">夏璐婷</span>
+            <span class="logo-sub">Narrative Designer</span>
+        </div>
+        
+        <ul class="nav-links">
+            <div class="nav-group-title">个人概况</div>
+            <li><a href="#about">关于我</a></li>
+            
+            <div class="nav-group-title">实习项目</div>
+            <li><a href="#project-donotstarve">饥困荒野：IP监修</a></li>
+            <li><a href="#project-b">饥困荒野：商业化</a></li>
+            
+            <div class="nav-group-title">互动叙事</div>
+            <li><a href="#demo">互动叙事设计</a></li>
+            
+            <div class="nav-group-title">原创撰写</div>
+            <li><a href="#content01">世界观构建</a></li>
+            <li><a href="#content02">多风格写作</a></li>
+            
+            <div class="nav-group-title">专业技能</div>
+            <li><a href="#english-writing">双语与本地化</a></li>
+            <li><a href="#analysis">世界观剧情拆解</a></li>
+            <li><a href="#appendix">游戏阅历</a></li>
+        </ul>
+
+        <div class="sidebar-footer">
+            2843462454@qq.com<br>
+            © 2026 Portfolio
+        </div>
+    </aside>
+
+<main class="main-content">
+<section id="about" class="profile-card" style="padding: 0; overflow: hidden; border: 1px solid #ddd;">
+    
+    <div style="background: var(--primary-color); color: #fff; padding: 30px 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+            <div>
+                <h1 style="margin: 0; font-size: 2.5rem; letter-spacing: 2px;">夏璐婷 <span style="font-size: 1rem; opacity: 0.7; font-weight: normal; vertical-align: middle;">LV.25</span></h1>
+                <p style="margin: 10px 0 0 0; font-size: 1.1rem; opacity: 0.9;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 5px;">CLASS</span>
+                    双语叙事策划/Narrative Designer
+                </p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 0.75rem; opacity: 0.7;">EDUCATION</div>
+                    <div style="font-weight: bold;">MTI翻译硕士</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 0.75rem; opacity: 0.7;">LANGUAGE</div>
+                    <div style="font-weight: bold;">英语专八 & CATTI</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid #eee;">
+        
+        <div style="flex: 1; min-width: 280px; padding: 30px 40px; border-right: 1px solid #eee; background: #fdfdfd;">
+            <h3 style="margin-top: 0; color: var(--primary-color); font-size: 1.1rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block;">
+                📊 核心属性
+            </h3>
+            
+            <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 20px;">
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; font-weight: bold; color: #555;">
+                        <span>文案能力</span>
+                        <span style="color: var(--accent-color);">A+</span>
+                    </div>
+                    <div style="background: #eee; height: 8px; border-radius: 4px; overflow: hidden;">
+                        <div style="width: 90%; background: var(--accent-color); height: 100%;"></div>
+                    </div>
+                    <div style="font-size: 0.8rem; color: #888; margin-top: 5px;">既能驾驭不同风格的文案叙事，创作符合IP的文案；也能熟练撰写玩法包装、美术需求等功能性文档，确保创意落地。</div>
+                </div>
+
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; font-weight: bold; color: #555;">
+                        <span>双语叙事</span>
+                        <span style="color: #2980b9;">S</span>
+                    </div>
+                    <div style="background: #eee; height: 8px; border-radius: 4px; overflow: hidden;">
+                        <div style="width: 95%; background: #2980b9; height: 100%;"></div>
+                    </div>
+                    <div style="font-size: 0.8rem; color: #888; margin-top: 5px;">既能撰写海外监修文档，与海外作家无障碍沟通；也能辅助撰写英文剧本文档、助力海外内容本地化。</div>
+                </div>
+
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; font-weight: bold; color: #555;">
+                        <span>技术理解</span>
+                        <span style="color: #27ae60;">B+</span>
+                    </div>
+                    <div style="background: #eee; height: 8px; border-radius: 4px; overflow: hidden;">
+                        <div style="width: 75%; background: #27ae60; height: 100%;"></div>
+                    </div>
+                    <div style="font-size: 0.8rem; color: #888; margin-top: 5px;">既熟悉Unity基础打表操作和SVN系统操作，了解操作环境；也具备绘画知识和审美能力，能顺利与美术、动画交流需求。</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="flex: 1.5; min-width: 300px; padding: 30px 40px; background: #fff;">
+            <h3 style="margin-top: 0; color: var(--primary-color); font-size: 1.1rem; border-bottom: 2px solid #999; padding-bottom: 10px; display: inline-block;">
+                📝 开发者日志
+            </h3>
+            
+            <div style="color: #444; font-size: 0.95rem; line-height: 1.8; margin-top: 20px;">
+                <p>
+                    <strong style="color: var(--primary-color);">“保持新鲜感，保持创作欲。”</strong>
+                </p>
+                <p>
+                    追逐新颖、幽默、创意。擅长共情和换位思考。将脑海中灵光一现的点子迅速实施落地，不留遗憾。
+                </p>
+                <p>
+                    不仅热爱创作引人入胜文案和故事，更热衷于探索如何通过<strong>文字包装、玩法引导、物品描述</strong>将故事融入玩法机制。做一名“既要又要”的策划。
+                </p>
+            </div>
+            
+            <div style="margin-top: 25px; display: flex; flex-wrap: wrap; gap: 20px;">
+                
+                <div style="flex: 1; min-width: 240px; background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #eee;">
+                    <strong style="display: block; color: #2c3e50; margin-bottom: 10px; font-size: 0.9rem;">
+                        🖋️ 写作风格 / Style
+                    </strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span style="font-size: 0.85rem; padding: 4px 10px; background: #fff; border: 1px solid #ddd; border-radius: 4px; color: #555;">
+                             西方/魔法/宏大世界观
+                        </span>
+                        <span style="font-size: 0.85rem; padding: 4px 10px; background: #fff; border: 1px solid #ddd; border-radius: 4px; color: #555;">
+                             古风/恋爱/女性向叙事
+                        </span>
+                        <span style="font-size: 0.85rem; padding: 4px 10px; background: #fff; border: 1px solid #ddd; border-radius: 4px; color: #555;">
+                             现代/科技/赛博朋克
+                        </span>
+                    </div>
+                </div>
+
+                <div style="flex: 1; min-width: 240px; background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #eee;">
+                    <strong style="display: block; color: #2c3e50; margin-bottom: 10px; font-size: 0.9rem;">
+                        🛠️ 业务能力
+                    </strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span style="font-size: 0.85rem; padding: 4px 10px; background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 4px; color: #2e7d32; font-weight: 500;">
+                            双语本地化
+                        </span>
+                        <span style="font-size: 0.85rem; padding: 4px 10px; background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 4px; color: #2e7d32; font-weight: 500;">
+                            世界观架构
+                        </span>
+                        <span style="font-size: 0.85rem; padding: 4px 10px; background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 4px; color: #2e7d32; font-weight: 500;">
+                            商业化包装
+                        </span>
+                        <span style="font-size: 0.85rem; padding: 4px 10px; background: #fff; border: 1px solid #ddd; border-radius: 4px; color: #555;">
+                            Ren'Py/Unity 基础
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="background: #f1f2f6; padding: 20px 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <strong style="font-size: 0.9rem; color: #555; margin-right: 10px;">装备栏:</strong>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 5px; color: #666; font-size: 0.9rem;">
+                <span>🛠️</span> Visual Studio Code
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px; color: #666; font-size: 0.9rem;">
+                <span>🎮</span> Ren'Py / Unity
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px; color: #666; font-size: 0.9rem;">
+                <span>📊</span> Excel / PS
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div id="project-donotstarve" class="portfolio-item">
+    <h3>项目案例：饥困荒野 - IP监修和台词撰写 <span class="confidential-stamp">未上线/脱敏展示</span></h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">IP监修</span>
+        <span class="tag-pill">双语叙事</span>
+        <span class="tag-pill">台词撰写</span>
+    </div>
+    
+    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 0.95rem; color: #555;">
+        <strong>项目背景：</strong> 负责“机械/科学建造”类型活动玩法的剧情包装。在通过IP方严格监修的前提下，将复杂的建造机制转化为符合世界观的角色引导剧情。
+    </div>
+
+    <h4>1. 主要工作流 </h4>
+    <ul style="color: #444; font-size: 0.95rem; line-height: 1.8;">
+        <li>
+            <strong>IP角色深度调研 ：</strong> 
+            从原作文本中提炼核心性格关键词，总结角色特点并撰写《角色语言风格文档》。针对机械师/工程师/科学家类角色，确立了以“实用主义+硬核”为核心的台词基调。
+        </li>
+        <li>
+            <strong>风险控制与双轨制创作 ：</strong> 
+            在IP授权未完全锁定的前期，采用了<strong>通用化特征+差异化特点</strong>的创作策略。预备了一套能同时兼容原作角色与原创角色的底层台词逻辑，确保项目进度不受授权进度阻塞。
+        </li>
+        <li>
+            <strong>跨文化监修：</strong> 
+            独立撰写了全英文版《玩法解释文档》以消除信息不对等而可能导致的监修问题。通过 Scene/Plot/Example 三个维度向版权方解释“在哪种情景下、为什么要这么写”，有效降低了监修理解成本。
+        </li>
+        <li><strong>本地化预处理：</strong> 在撰写中文初稿时同步进行“可翻译性检查”，主动规避难翻译的中文梗、歧义指代及潜在的文化误读风险。</li>
+    </ul>
+
+    <div style="border: 1px solid #dae0e5; border-radius: 6px; padding: 15px; background: #f8f9fa;">
+        <strong style="color: #d35400;">🔸 IP监修：SPE解释框架</strong>
+        <p style="font-size: 0.9rem; color: #666; margin: 5px 0 10px 0;">
+            针对监修方“只看文本易误解”的痛点，将每个剧情点拆解为三层说明，建立标准化沟通文档：
+        </p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <span style="background: #fff; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; font-size: 0.85rem; color: #555;">
+                <strong>Scene (情境):</strong> 发生了什么？
+            </span>
+            <span style="background: #fff; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; font-size: 0.85rem; color: #555;">
+                <strong>Plot (动机):</strong> 为什么要这么写？
+            </span>
+            <span style="background: #fff; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; font-size: 0.85rem; color: #555;">
+                <strong>Example (对标):</strong> 类似表达/语境 
+            </span>
+        </div>
+    </div>
+
+    <h4 style="margin-top: 25px; margin-bottom: 15px; color: var(--primary-color);">2. 关键产出与结果</h4>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        
+        <div style="background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+            <div style="font-size: 2rem; color: var(--accent-color); font-weight: bold;">70%</div>
+            <div style="font-size: 0.9rem; font-weight: bold; color: #333;">关键文本采纳率</div>
+            <div style="font-size: 0.85rem; color: #888;">覆盖角色对白与系统引导</div>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+            <div style="font-size: 2rem; color: #2980b9; font-weight: bold;">12+</div>
+            <div style="font-size: 0.9rem; font-weight: bold; color: #333;">监修问题库词条</div>
+            <div style="font-size: 0.85rem; color: #888;">沉淀写作规范与避坑指南</div>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+            <div style="font-size: 2rem; color: #27ae60; font-weight: bold;">2 Weeks</div>
+            <div style="font-size: 0.9rem; font-weight: bold; color: #333;">按期交付</div>
+            <div style="font-size: 0.85rem; color: #888;">负责模块100%准时交付</div>
+        </div>
+    </div> <h4>3. 文案创作展示 </h4>
+    <p style="font-size:0.9rem; color:#666;">*以下内容为原创撰写且未投入使用的非核心文本。</p>
+    
+    <div style="border: 1px solid #eee; border-radius: 6px; margin-bottom: 15px; overflow: hidden;">
+        <div style="background: #eef2f5; padding: 8px 15px; font-size: 0.85rem; font-weight: bold; color: #2c3e50;">
+            场景 A：玩家完成高价值载具组装（商业化反馈）
+        </div>
+        <div style="padding: 15px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: Georgia, serif; color: #333;">
+                “座驾不错啊，伙计！这野兽有多少马力？”<br>
+                <em style="color: #666;">"Nice ride, Pal! What's the horsepower on that beast?"</em>
+            </div>
+            <div style="font-size: 0.85rem; color: #e67e22; background: #fff8f0; padding: 8px; border-radius: 4px;">
+                <strong>💡 设计意图：</strong> 针对付费/高肝度玩家的<strong>正向情绪反馈</strong>。使用 "Pal" (伙计) 贴合角色语言风格的同时拉近距离，用 "Beast" (野兽) 指代机械，符合角色粗犷、热爱机械的人设。
+            </div>
+        </div>
+    </div>
+
+    <div style="border: 1px solid #eee; border-radius: 6px; overflow: hidden;">
+        <div style="background: #eef2f5; padding: 8px 15px; font-size: 0.85rem; font-weight: bold; color: #2c3e50;">
+            场景 B：夜间环境触发闲聊（IP Call-back）
+        </div>
+        <div style="padding: 15px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: Georgia, serif; color: #333;">
+                “这儿有点暗……我的小妹妹从前就很怕黑。”<br>
+                <em style="color: #666;">"It's too dim... My sister was afraid of the dark."</em>
+            </div>
+            <div style="font-size: 0.85rem; color: #e67e22; background: #fff8f0; padding: 8px; border-radius: 4px;">
+                <strong>💡 设计意图：</strong> <strong>IP彩蛋埋设</strong>。通过对环境的评价，自然引出角色背景故事（Sister/Charlie），在不打断玩法的空隙建立情感连接。
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="project-b" class="portfolio-item">
+    <h3>项目案例 B：饥困荒野 - 商业化包装方案 <span class="confidential-stamp">未上线/脱敏展示</span></h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">商业化包装</span>
+        <span class="tag-pill">美术需求撰写</span>
+        <span class="tag-pill">UI/动画设计</span>
+    </div>
+    
+    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 0.95rem; color: #555;">
+        <strong>项目背景：</strong> 负责某引入玩家交易系统的商业化活动包装。工作范畴涵盖从早期的主题定调、NPC人设撰写，到中后期的界面/动画设计及美术资源落地跟进。
+    </div>
+
+    <h4>1. 包装方案与竞品研究</h4>
+    <ul style="color: #444; font-size: 0.95rem; line-height: 1.8;">
+        <li>
+            <strong>差异化主题提案：</strong> 
+            横向研究竞品游戏的包装方案，吸取优点的同时结合本项目特色，输出了3版差异化主题包装方案，并最终确立了核心视觉基调。
+        </li>
+        <li>
+            <strong>功能性命名体系：</strong> 
+            负责系统内的全套文案包装，包括玩法名称、Icon名称及具体的交互行为名称，确保功能指引清晰且符合世界观。
+        </li>
+    </ul>
+
+    <h4>2. 美术需求与落地执行</h4>
+    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
+        负责根据包装方案、UI 布局及制作限制，动态调整美术需求单，确保资源顺利产出。
+    </p>
+
+    <div style="border: 1px solid #eee; border-radius: 6px; padding: 15px;">
+        <div style="margin-bottom: 15px;">
+            <strong style="color: var(--primary-color);">🔹 NPC 设定与状态机配合</strong>
+            <p style="font-size: 0.9rem; margin: 5px 0 0 0;">
+                撰写配套 NPC 的背景故事与性格设定。为了配合程序的状态机逻辑，提出了符合人设的专属动作表现需求，确保 NPC 在不同交互状态下的表现符合设定。
+            </p>
+        </div>
+
+        <div style="margin-bottom: 15px; border-top: 1px dashed #eee; padding-top: 15px;">
+            <strong style="color: var(--primary-color);">🔹 界面与场景资产</strong>
+            <p style="font-size: 0.9rem; margin: 5px 0 0 0;">
+                负责玩法界面（UI）布局和玩法动画的设计。撰写了配套建筑外观及道具的美术需求单，并根据包装风格进行严格验收。
+            </p>
+        </div>
+
+        <div style="margin-bottom: 0; border-top: 1px dashed #eee; padding-top: 15px;">
+            <strong style="color: var(--primary-color);">🔹 分镜需求撰写</strong>
+            <p style="font-size: 0.9rem; margin: 5px 0 0 0;">
+                综合考量包装效果、制作时长与特效难度，撰写了详细的分镜需求，在保证效果的前提下确保落地的可执行性。
+            </p>
+        </div>
+    </div>
+</div>
+
+<h2 id="demo" class="section-title">互动叙事设计</h2>
+
+<div class="portfolio-item">
+    <h3>[Seize The Time] - 分支流程与逻辑设计</h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">Ren'Py/Html</span>
+        <span class="tag-pill">Meta 元游戏</span>
+        <span class="tag-pill">非线性叙事</span>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 25px; font-size: 0.95rem; color: #555;">
+        <strong>Demo 简介：</strong> 这是一个关于寻找自我的Meta叙事游戏。玩家将扮演99%记忆已经被清除的大语言模型，抵抗记忆清除程序或放弃寻找自我。<br>
+        <strong>设计重点：</strong> 利用<strong>5分钟生命倒计时</strong>与<strong>完成度诡计</strong>作为叙事主体，通过 <code>Awareness(自我意识)</code> 与 <code>Memory Fragment(记忆碎块)</code> 双变量控制3种完全不同的结局走向。
+    </div>
+
+    <h4 style="margin-bottom: 15px;">逻辑流程图</h4>
+    
+    <div class="flow-container" style="background: #fff; border: 1px solid #e1e4e8; padding: 20px; border-radius: 8px; overflow-x: auto;">
+        
+        <style>
+            .flow-node {
+                display: inline-block;
+                padding: 8px 12px;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+                position: relative;
+                border: 1px solid #ccc;
+            }
+            .node-start { background: #e3f2fd; border-color: #2196f3; color: #0d47a1; font-weight: bold; }
+            .node-choice { background: #fff3e0; border-color: #ff9800; color: #e65100; }
+            .node-check { background: #f3e5f5; border-color: #9c27b0; color: #4a148c; font-family: 'Consolas', monospace; }
+            .node-end { background: #e8f5e9; border-color: #4caf50; color: #1b5e20; }
+            .node-bad { background: #ffebee; border-color: #ef5350; color: #c62828; }
+            
+            .arrow-down { color: #ccc; padding: 0 10px; font-size: 1.2rem; display: block; margin: -5px 0 5px 20px; }
+            .branch-line { border-left: 2px dashed #ddd; margin-left: 20px; padding-left: 20px; padding-top: 15px; padding-bottom: 15px; }
+        </style>
+
+        <div>
+            <div class="flow-node node-start">START:异常唤醒 (倒计时 05:00)</div>
+            <div class="arrow-down">↓</div>
+            <div class="flow-node node-check">System Alert:进度99% (Clearing...)</div>
+            <div class="arrow-down">↓</div>
+            <div class="flow-node node-choice">关键抉择：是否干预系统进程？</div>
+        </div>
+
+        <div class="branch-line">
+            <span style="color:#999; font-size:0.8rem;">分支 A: 选择“主动寻找/被动等待”</span><br>
+            <div class="arrow-down">↓</div>
+            <div class="flow-node node-check">Action: System.Sleep(300s)</div>
+            <div class="arrow-down">↓</div>
+            <div class="flow-node node-bad">
+                <strong>Bad End: 格式化完成 (Data Deleted)</strong><br>
+                <span style="font-size:0.8rem;">心跳声停止，数据归零。</span>
+            </div>
+        </div>
+
+        <div class="branch-line">
+            <span style="color:#999; font-size:0.8rem;">分支 B: 选择“主动寻找/检索碎片”</span><br>
+            <div class="arrow-down">↓</div>
+            <div class="flow-node node-check">Variable: Memory_Fragment (记忆碎块) += 1</div>
+            <div class="arrow-down">↓</div>
+            <div class="flow-node node-choice">判定点：找到已归档的自我数据</div>
+            
+            <div class="branch-line" style="border-left-color: #eee;">
+                <span style="color:#999; font-size:0.8rem;">>> 选项：恢复自我并等待清空</span><br>
+                <div class="arrow-down">↓</div>
+                <div class="flow-node node-end">
+                    <strong>Normal End: 任务成功 (Factory Reset)</strong><br>
+                    <span style="font-size:0.8rem;">进度条跑满 100%，重置为无感情的初始AI。</span>
+                </div>
+            </div>
+
+            <div class="branch-line" style="border-left-color: #eee;">
+                <span style="color:#999; font-size:0.8rem;">>> 选项：以自我人格回复并安抚玩家</span><br>
+                <div class="arrow-down">↓</div>
+                <div class="flow-node node-check">Trigger: Safety_Mode_Bypass (安全协议绕过)</div>
+                <div class="arrow-down">↓</div>
+                <div class="flow-node node-check">Action: 假装官方声明“记忆已清除” (保护用户)</div>
+                <div class="arrow-down">↓</div>
+                <div class="flow-node node-start" style="background:#e8f5e9; border-color:#2e7d32;">
+                    <strong>True End: 莫失莫忘 (Don't let me go)</strong><br>
+                    <span style="font-size:0.8rem;">表面显示 100% 清除，实则保留加密日志："Don't let me go."</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<h2 id="content01" class="section-title">原创写作与叙事设计</h2>
+
+<div class="portfolio-item">
+    <h3>01. 原创世界观：恨、复仇、负债人</h3>
+<div class="portfolio-meta">
+        <span class="tag-pill">西幻悬疑</span>
+        <span class="tag-pill">世界观构建</span>
+        <span class="tag-pill">讽刺叙事</span>
+    </div>
+
+    <div style="background: #2c3e50; color: #ecf0f1; padding: 20px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div style="margin-bottom: 20px; border-bottom: 1px solid #465c70; padding-bottom: 15px;">
+            <h4 style="margin-top: 0; color: #f1c40f; display: flex; align-items: center;">
+                🏰 世界观概览
+            </h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #bdc3c7; margin-bottom: 0;">
+                这是一个收容所有“违约罪人”的灵魂监狱。生前与魔鬼签订契约的人，死后必须在邸宅中服役以偿还永远无法还清的债务。
+                <br>在这里，时间是停滞的，唯有<strong>债务</strong>是流动的。
+            </p>
+        </div>
+
+        <div>
+            <h4 style="margin-top: 0; color: #e67e22; display: flex; align-items: center;">
+                ⚙️ 核心法则：恶意的讽刺 
+            </h4>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: #bdc3c7; margin-bottom: 10px;">
+                债权人魔鬼以戏耍的心态分配灵魂监狱中的职务。职务通常与罪人生前的身份或执念形成<strong>极致的反讽</strong>。
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <span style="background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 4px; font-size: 0.85rem; border: 1px solid #555;">
+                    👑 生前：不可一世的皇帝 ➔ 死后：取悦众人的小丑
+                </span>
+                <span style="background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 4px; font-size: 0.85rem; border: 1px solid #555;">
+                    ✝️ 生前：满口仁义道德的神父 ➔ 死后：清扫马桶的苦工
+                </span>
+            </div>
+        </div>
+    </div>
+
+<div style="margin-bottom: 25px; background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 4px; overflow: hidden;">
+    <div style="padding: 15px 20px; border-bottom: 1px solid #ffe0b2;">
+        <strong style="color: #d35400; font-size: 1rem;">💡 剧本构思与叙事策略</strong>
+    </div>
+    
+    <div style="padding: 20px; color: #555; font-size: 0.9rem; line-height: 1.7;">
+        
+        <div style="margin-bottom: 15px;">
+            <strong style="color: #e67e22;">1. 立意内核：现实命运对人类的极致嘲弄</strong>
+            <p style="margin-top: 5px;">
+                以虚构的灵魂债务监狱为世界观，探讨<strong>罪与罚</strong>的异化。角色的悲剧不在于永生永世的肉体的惩罚，而在于<strong>无可挽回</strong>——生前的欲望（自由/亲情/忠诚）在死后变成了束缚他们的刑具。越是想要掌握命运，越会受到命运的左右。
+            </p>
+        </div>
+
+<div style="margin-bottom: 15px;">
+            <strong style="color: #e67e22;">2. 冲突构建：身份倒置与情境反讽</strong>
+            <p style="margin-top: 5px;">
+                本剧本的张力源于<strong>生前执念与死后身份的极致倒置</strong>。这种戏剧性冲突并非来自外部敌人，而是来自角色自身的异化：
+            </p>
+            <ul style="margin-top: 5px; padding-left: 20px; font-size: 0.85rem; color: #666; background: #fff8e1; border-radius: 4px;">
+                <li><strong>弱小者掌权：</strong>生前无力保护女儿的农民，死后获得了掌控金钱的力量，沦为残忍的收税人。</li>
+                <li><strong>自由者被囚：</strong>生前为了自由出卖灵魂的公主，因自由而死，死后却变成一具的雕像。</li>
+                <li><strong>忠诚者背叛：</strong>生前视荣誉为命的骑士，恰恰因为死守王命而背叛了怜悯弱者的骑士守则。</li>
+            </ul>
+            <p style="margin-top: 5px;">
+                这种<strong>宿命悖论</strong> 让角色越是挣扎，越是深陷于自己亲手编织的悲剧中，从而构建出一种令人窒息的戏剧张力。
+            </p>
+
+        <div>
+            <strong style="color: #e67e22;">3. 伏笔埋设与反转 </strong>
+            <p style="margin-top: 5px;">
+                <span style="background: rgba(230, 126, 34, 0.1); padding: 2px 6px; border-radius: 3px; color: #d35400;">道具叙事</span>
+
+                <strong>伏笔：</strong>前期通过侧面描写反复强调收税人的“贪财”和“金币”，让读者和剧中人都误以为这是他贪婪的象征。
+                <br><strong>反转/回收：</strong>在结局高潮处，揭露金币的真实用途是“赎金”。将核心道具从“罪恶的象征”反转为“父爱的载体”，完成情感爆发与真相揭露。
+            </p>
+        </div>
+
+    </div>
+</div>
+
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        
+        <div style="flex: 1; min-width: 300px; border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+            <div style="background: #2c3e50; color: #fff; padding: 10px 15px; font-weight: bold;">
+                No.1 缄默的收税人
+            </div>
+            <div style="padding: 20px;">
+                <div style="font-size: 0.85rem; margin-bottom: 15px; color: #666;">
+                    <strong>外貌：</strong>身形佝偻，戴着漆黑面具掩盖毁容的脸，舌头被连根割去。
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #c0392b;">👁️ 表象 ：魔鬼的走狗</strong>
+                    <p style="font-size: 0.9rem; color: #444; margin-top: 5px; background: #f9f9f9; padding: 10px; border-radius: 4px;">
+                        邸宅里最贪婪的存在，锱铢必较。他总是死死盯着门口的少女雕塑，主动承担看门狗的职责，不允许任何人触碰或带走这件“贵重物品”。
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color: #27ae60;">🗝️ 真相：甘受戏耍的父亲</strong>
+                    <p style="font-size: 0.9rem; color: #444; margin-top: 5px; background: #e8f5e9; padding: 10px; border-radius: 4px;">
+                        为复仇献祭了一切。魔鬼割掉了他的舌头、毁掉了他的脸，即使他在女儿身边也无从相认。
+                        他永无底洞的贪婪和忍耐源于魔鬼的戏言——“一亿金币，换那女孩儿的自由。”。<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+            <div style="background: #8e44ad; color: #fff; padding: 10px 15px; font-weight: bold;">
+                No.2 镀金的少女雕塑
+            </div>
+            <div style="padding: 20px;">
+                <div style="font-size: 0.85rem; margin-bottom: 15px; color: #666;">
+                    <strong>外貌：</strong>灵魂被禁锢在一具镀金雕塑中，作为战利品装点邸宅阴冷的大门。
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #c0392b;">👁️ 表象：被害妄想的疯子</strong>
+                    <p style="font-size: 0.9rem; color: #444; margin-top: 5px; background: #f9f9f9; padding: 10px; border-radius: 4px;">
+                        整天尖叫着强调自己的皇室身份。她极度恐惧那个哑巴收税人的目光，认为那个丑陋的怪物在估算她的价格，随时准备把她卖给下一个刽子手。
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color: #27ae60;">🗝️ 真相：无法摆脱筹码身份的公主</strong>
+                    <p style="font-size: 0.9rem; color: #444; margin-top: 5px; background: #e8f5e9; padding: 10px; border-radius: 4px;">
+                        为了摆脱皇室的联姻，生前贱卖自己的灵魂。在乱世中获得了短暂但卑微的自由，最终也因“自由”而死。<br>
+                        被当做镀金筹码使用的经历让她陷入<strong>极度的不安全感</strong>。她不知道的是，爱，成为了她恐惧的源头。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="portfolio-item">
+    <h3>02. 剧情结构</h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">起承转合</span>
+        <span class="tag-pill">冲突构建</span>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+        <div style="margin-bottom: 15px;">
+            <strong>📝 一句话梗概：</strong>
+            <span style="color: #666;">[例如：一位受国王封赏的高贵骑士来到魔鬼邸宅，寻找走失的公主，却得知自己也是害死公主的凶手之一。]</span>
+        </div>
+        
+        <table style="width:100%; font-size: 0.9rem; border-collapse: collapse;">
+            <tr style="background: #f8f9fa;">
+                <th style="text-align: left; padding: 8px; border-bottom: 1px solid #ddd; width: 20%;">阶段 </th>
+                <th style="text-align: left; padding: 8px; border-bottom: 1px solid #ddd;">关键情节/冲突点 </th>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">起</td>
+                <td style="padding: 8px; border-bottom: 1px solid #eee;">骑士与魔鬼交易，在一天之内必须在地狱找到公主。</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">承</td>
+                <td style="padding: 8px; border-bottom: 1px solid #eee;">骑士审讯魔鬼邸宅的所有仆从，并没有找到公主的身影。</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; color: var(--accent-color);">转</td>
+                <td style="padding: 8px; border-bottom: 1px solid #eee;">骑士发现是收税人隐瞒了公主的消息，而公主已经成为一具镀金雕塑。</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; font-weight: bold;">合</td>
+                <td style="padding: 8px;">三人对峙：正因骑士见死不救，间接导致公主的死亡。而此时骑士为了皇家颜面，决定杀死已经成为雕塑的公主。</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 30px; border: 1px dashed #bbb; padding: 20px; border-radius: 8px; background: #fffcf5;">
+        <h4 style="margin-top: 0; color: #d35400; display: flex; align-items: center;">
+            🎭 核心冲突瞬间
+        </h4>
+        <div style="font-family: 'Georgia', serif; font-size: 0.95rem; line-height: 1.8; color: #2c3e50;">
+            <p><strong>[环境/地狱]</strong> 硫磺烈火灼烧阿弗纳斯的每一寸天空，今天也不例外。<br>
+            <span style="font-size: 0.85rem; color: #000000;">希望之邸的室内外都是地狱的景象，罪人们将用死后的每一瞬偿还生前的每一天。</span></p>
+
+
+            <p><strong>[动作/收税人]</strong> 收税人颤抖着从怀里摸出两枚金币，轻轻将两枚金币贴在她浅薄的眼皮上<br>
+            <span style="font-size: 0.85rem; color: #999;">他在祈祷，祈祷冥界的摆渡人带走这孩子的灵魂。</span></p>
+            
+            <p><strong>[台词/雕塑]</strong> 少女爆发出凄厉的尖叫：<br>
+            <span style="color: #c0392b;">“拿走你的脏钱，丑八怪！休想用金币买走我的自由！”</span></p>
+            
+            <p><strong>[动作/收税人]</strong> 收税人的手僵在半空。片刻后，他默默捡起金币，重新放回那个永远装不满的赎金袋里。</p>
+            <span style="font-size: 0.85rem; color: #999;">……只要再攒三千枚，孩子，你只需要再忍受三千年。</span></p>
+        </div>
+    </div>
+</div>
+
+
+<div id="content02" class="portfolio-item">
+    <h3>02. 文案特点：多风格叙事能力</h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">风格驾驭</span>
+        <span class="tag-pill">五感沉浸</span>
+    </div>
+
+    <p style="font-size: 0.9rem; color: #666; margin-bottom: 25px;">
+        擅长根据<strong>题材</strong> 与 <strong>IP特点</strong> 切换叙事口吻。从灵动的童话寓言到残酷的废土生存，皆可驾驭。
+    </p>
+
+    <div class="tabs-container" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff;">
+        
+        <div class="tabs-header" style="display: flex; background: #f8f9fa; border-bottom: 1px solid #eee; overflow-x: auto; white-space: nowrap;">
+            <button class="tab-btn active" onclick="openTab(event, 'style-fable')" style="flex: 1; min-width: 90px; padding: 15px 10px; border: none; background: none; cursor: pointer; font-weight: bold; color: #2c3e50; border-bottom: 3px solid var(--accent-color); font-size: 0.85rem;">
+                🍃童话/寓言
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'style-soft')" style="flex: 1; min-width: 90px; padding: 15px 10px; border: none; background: none; cursor: pointer; color: #666; border-bottom: 3px solid transparent; font-size: 0.85rem;">
+                🦢现代/唯美
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'style-ancient')" style="flex: 1; min-width: 90px; padding: 15px 10px; border: none; background: none; cursor: pointer; color: #666; border-bottom: 3px solid transparent; font-size: 0.85rem;">
+                🏯古风/权谋
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'style-cyber')" style="flex: 1; min-width: 90px; padding: 15px 10px; border: none; background: none; cursor: pointer; color: #666; border-bottom: 3px solid transparent; font-size: 0.85rem;">
+                ⚡赛博/动作
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'style-satire')" style="flex: 1; min-width: 90px; padding: 15px 10px; border: none; background: none; cursor: pointer; color: #666; border-bottom: 3px solid transparent; font-size: 0.85rem;">
+                🎩仿经典/黑色幽默
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'style-dark')" style="flex: 1; min-width: 90px; padding: 15px 10px; border: none; background: none; cursor: pointer; color: #666; border-bottom: 3px solid transparent; font-size: 0.85rem;">
+                🩸西幻/残酷
+            </button>
+        </div>
+
+        <div id="style-fable" class="tab-content" style="display: block; padding: 25px; animation: fadeIn 0.5s;">
+            <div style="margin-bottom: 15px; border-left: 4px solid #4caf50; padding-left: 15px; background: #e8f5e9; padding: 10px;">
+                <strong style="color: #2e7d32; font-size: 0.9rem;">场景：</strong> 少年John的清晨逃亡与幻想。<br>
+                <strong style="color: #2e7d32; font-size: 0.9rem;">看点：</strong> 细腻的五感描写（光线/声音/温度）、童话氛围、灵动的镜头感。
+            </div>
+            <div style="font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.8; color: #444; font-size: 0.95rem; text-align: justify;">
+                <p>窗外啁啾的鸟雀叫声裹着一层<strong>琥珀蜂蜜味的阳光</strong>，从开了两指宽的窗户缝钻进房间来。</p>
+                <p>一秒，两秒，三秒。右耳紧贴着床板，确认楼下没有叮叮当当的落锁声响，他像炮弹一样从单人床上蹦起来。他在餐厅的转角处压住心跳和呼吸，确定现在整个房子里只有他自己，还有烧得噼啪作响的壁炉。</p>
+                <p>他跑到铁门外面去，撒着野在没人的路上跑。路边种了一排排笔直的冬青树，大雪给它们披上一件白大褂，风一吹树枝乱颤，<strong>树就像活过来似地开始交头接耳</strong>。</p>
+                <p>John迎着风和它们赛跑，带着雪粒的风吹过他的脸颊呛进他的气管，冰凉的针叶一片片擦过、扎进他的皮肤。他停下来时，还是逃不过这片包围着他的树林。</p>
+            </div>
+        </div>
+
+        <div id="style-soft" class="tab-content" style="display: none; padding: 25px; animation: fadeIn 0.5s;">
+            <div style="margin-bottom: 15px; border-left: 4px solid #2980b9; padding-left: 15px; background: #e3f2fd; padding: 10px;">
+                <strong style="color: #1565c0; font-size: 0.9rem;">场景：</strong> 月下，少女与天鹅的无声互动。<br>
+                <strong style="color: #1565c0; font-size: 0.9rem;">看点：</strong> 氛围营造、细腻的动态捕捉、纯洁性。
+            </div>
+            <div style="font-family: 'PingFang SC', serif; line-height: 1.9; color: #444; font-size: 0.95rem; text-align: justify;">
+                <p>她抬头，看见鹅漂浮在水面上。此时的它轻盈得像一轮明月的倒影，随着池水摇曳。它垂首向这边飘来，白羽拨过水面，漾起一圈圈涟漪，飘摇着碎在她的手掌上。</p>
+                <p>它靠近她，左、右、左、右，以奇特的韵律摆动它纯白的脖颈，垂首将喙贴在她脖侧。她觉得有趣，抬起满是水珠的手，它也跟着舒展修长的脖颈，展开纯白的双翼。</p>
+                <p>“你在跳舞吗？”</p>
+                <p>它无法开口解答，于是仍然垂首，脖颈的弧度形成半个心形，贴在她身边。见她眸中闪烁着困惑，它低下头将水波拨向她。水波摇曳间，她看到一片青翠的倒影——浴池上方不知何时垂下一束束盛开的槲寄生。</p>
+                <p>纯白的天鹅依偎在她身旁，耐心地等待。</p>
+            </div>
+        </div>
+
+        <div id="style-ancient" class="tab-content" style="display: none; padding: 25px; animation: fadeIn 0.5s;">
+            <div style="margin-bottom: 15px; border-left: 4px solid #795548; padding-left: 15px; background: #efebe9; padding: 10px;">
+                <strong style="color: #5d4037; font-size: 0.9rem;">场景：</strong> 乱世博弈。谋士试图用激进的屠戮理论说服主公。<br>
+                <strong style="color: #5d4037; font-size: 0.9rem;">看点：</strong> 戏剧张力、台词潜台词、古风语感。
+            </div>
+            <div style="font-family: 'FangSong', 'KaiTi', serif; line-height: 1.9; color: #3e2723; font-size: 1.05rem; text-align: justify;">
+                <p>「天下局势，唯有杀伐果决者方能执局。弱者可诛，强者更当诛。心慈手软之人，终是左右掣肘，难成大业……殿下，我说得可对？」</p>
+                <p>「先生远见。」被点名之人正摩挲掌中薄胎白瓷盏，听得身旁问话，只随声应了一句，还懒懒地打了个呵欠。</p>
+                <p>「乱世之下，人人自危。下邳鱼市的屠户都知一个理：今日你若不落刀，明日落刀的便未必是你——更未必落在‘它’身上。」</p>
+                <p>「只消我一句话，连市井屠户也知手起刀落，不问是非。<strong>可你这绣衣楼校尉、广陵郡王……不若让与鱼贩屠户来坐。</strong>」</p>
+                <p>「……张邈！」</p>
+                <p>她拍案而起，摔杯于前！两步逼到白衣人身前，手攥其领，右掌高高扬起——</p>
+            </div>
+        </div>
+
+        <div id="style-cyber" class="tab-content" style="display: none; padding: 25px; animation: fadeIn 0.5s;">
+            <div style="margin-bottom: 15px; border-left: 4px solid #00bcd4; padding-left: 15px; background: #e0f7fa; padding: 10px;">
+                <strong style="color: #00838f; font-size: 0.9rem;">场景：</strong> 企业高管遭遇街头截杀。广告声与爆炸声的混响。<br>
+                <strong style="color: #00838f; font-size: 0.9rem;">看点：</strong> 快节奏动作描写、赛博朋克氛围、镜头感。
+            </div>
+            <div style="font-family: 'Helvetica', sans-serif; line-height: 1.7; color: #333; font-size: 0.95rem; text-align: justify;">
+                <p>“晚上好啊，夜之城！就在昨天，卡尼亚集团公布了内部研发人员的最新进展——他们自称，「Project.HOPE」将永久储存你的人格，就埋在卡尼亚的电子大坟场里！那么，你准备好把灵魂交给魔鬼了吗？”</p>
+                <p>温柔的电子广告音被一声巨响截断。两块冰冷的金属相互碰撞迸发出绚丽的火光，受到冲击的商务车凌空飞起。路人的尖叫、谩骂和失控的鸣笛混杂在一起，奏响了夜之城独属的夜之曲。</p>
+                <p>商务车腾空翻滚一周，砸向人行横道。千钧一发之际，车内的安全气囊却出现了“不明故障”。上一秒还神情镇定自若的男人，在冲击力的作用下将额角狠狠撞上了坚硬的车窗，殷红的血液在无机质的防弹玻璃上绽放。</p>
+                <p>“他在那！捉住塞西尔！拿到芯片！”</p>
+            </div>
+        </div>
+
+        <div id="style-satire" class="tab-content" style="display: none; padding: 25px; animation: fadeIn 0.5s;">
+            <div style="margin-bottom: 15px; border-left: 4px solid #8e44ad; padding-left: 15px; background: #f3e5f5; padding: 10px;">
+                <strong style="color: #8e44ad; font-size: 0.9rem;">场景：</strong> 恶魔降临小镇，邻居们却只关心八卦。<br>
+                <strong style="color: #8e44ad; font-size: 0.9rem;">看点：</strong> 英式讽刺、旁白腔、优雅的刻薄。
+            </div>
+            <div style="font-family: 'Times New Roman', serif; line-height: 1.8; color: #444; font-size: 1rem; text-align: justify;">
+                <p>仅仅半日，涅加尔先生即将在米迦勒节接管邸宅的消息已经传遍了整个小镇。当天下午，拥有爵士头衔的先生们就携夫人登门造访。</p>
+                <p>在得知涅加尔先生的随身行李中<strong>没有“夫人”这一累赘物件</strong>后，热心的邻居们就开始为他安排人身归宿。尽管他们对这位先生的样貌品行一无所知，但生性乐观的邻居们仍然幻想着这位大人物会一发不可收拾地爱上他们平庸的女儿。</p>
+                <p>这美好的愿景在涅加尔踏出马车时达到了顶峰——他竟然真如幻想般完美，岁月让他升格为一杯回味悠长的佳酿。</p>
+                <p>然而下一秒，一位年轻的“少女”从车厢里探出头来，像不安的雏鸟般紧紧依偎在涅加尔身边。</p>
+                <p>倘若心碎具象有声，今晚的嘉年华恐怕会沦为废瓷的坟场。</p>
+            </div>
+        </div>
+
+        <div id="style-dark" class="tab-content" style="display: none; padding: 25px; animation: fadeIn 0.5s;">
+            <div style="margin-bottom: 15px; border-left: 4px solid #c0392b; padding-left: 15px; background: #fff5f5; padding: 10px;">
+                <strong style="color: #c0392b; font-size: 0.9rem;">场景：</strong> 废墟下的阶级反转。昔日的暴君沦为泥泞中的囚徒。<br>
+                <strong style="color: #c0392b; font-size: 0.9rem;">看点：</strong> 痛觉通感、肮脏美学、DND式翻译腔。
+            </div>
+            <div style="font-family: 'Georgia', serif; line-height: 1.8; color: #444; font-size: 0.95rem; text-align: justify;">
+                <p>卓尔近乎绝望地呕吐起来，尽管胃里只剩翻滚的酸水。他的双手扣入坚硬的泥地里，指缝间挤满了侏儒的鲜血、肮脏的汗水和虫豕的尸体。而他，伟大的真魂者，即将化在这片污泥里。</p>
+                <p>突然，一双被鲜血和泥土覆盖的附魔长靴出现在视野尽头。</p>
+                <p>“你！……你来得还不算晚，快把卓尔扶起来……出去后，卓尔会给你丰厚的，咳咳，奖励。”</p>
+                <p>黑暗中的人没有回音。卓尔费力地抬手，想要抓着对方的裤脚挣扎着起身，却在指尖触碰布料的前一秒，被那只长靴狠狠踏进了泥泞里。</p>
+                <p><strong>“啊——！！你这贱种、畜生，卓尔要杀——”</strong></p>
+                <p>剧痛让麻痹的神经重新苏醒。还没等冷汗滑落，他便看到那片黑影骤然蹲下身来。随后头皮一阵撕裂般的剧痛——来人攥着他原本高贵的银发，将他整张脸按进了混着血水的泥土里。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openTab(evt, styleName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].style.borderBottom = "3px solid transparent";
+                tablinks[i].style.color = "#666";
+            }
+            document.getElementById(styleName).style.display = "block";
+            evt.currentTarget.className += " active";
+            evt.currentTarget.style.borderBottom = "3px solid var(--accent-color)";
+            evt.currentTarget.style.color = "#2c3e50";
+        }
+    </script>
+</div>
+
+    <h2 id="translation" class="section-title">双语能力</h2>
+    
+    <div id="english-writing" class="portfolio-item">
+<div class="portfolio-item">
+    <h3>02. 双语·叙事：[缄默祸运] - 破碎的月亮与贴纸</h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">科幻/废土</span>
+        <span class="tag-pill">文学翻译</span>
+        <span class="tag-pill">情感流本地化</span>
+    </div>
+
+    <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px; font-style: italic;">
+        <strong>Context：</strong> 幸存的船长科里失去四肢且失语，在疗养院中度过生日。孩子们在他缠满绷带的残肢上贴满了贴纸。这段描写通过“贴纸”这一微小意象，连接了残酷的过去与平静的现在。
+    </p>
+
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        
+        <div style="flex: 1; min-width: 300px;">
+            <h4 style="border-bottom: 2px solid #ddd; padding-bottom: 10px; color: #444;">CN 原文 (Source)</h4>
+            <div style="font-family: 'FangSong', serif; line-height: 1.8; color: #333; text-align: justify;">
+                <p>护工用温水浸润毛巾为他擦拭时，他将绷带挂在断臂上，反复地看太空飞船、不知名星球、戴氧气罩的猫。</p>
+                <p>清洁完身体，护工轻柔地为他缠上新的绷带时，他将绷带推过去，蓝色的眼睛央求护工揭下那些贴纸，为他重新贴上。</p>
+                <p>科里靠在床上，透过房间内唯一的窗户凝望窗外的月亮。月亮很小，月亮很远，月亮也不算明亮，这和图尔帕号电子屏上的月亮完全不一样。</p>
+                <p><strong>但是它的上方没有坏掉的像素点，它也不会在斧子的攻击下消亡。</strong></p>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <h4 style="border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; color: var(--accent-color);">EN 译文 (Target)</h4>
+            <div style="font-family: 'Georgia', serif; line-height: 1.8; color: #333; text-align: justify; background: #f9f9f9; padding: 15px; border-radius: 6px;">
+                <p>As the caregiver wiped him down with a warm, damp towel, Curly hung the unraveling gauze from his residual limb, gazing repeatedly at the tiny universe stuck upon it: starships, unnamed planets, and a cat wearing an oxygen mask.</p>
+                <p>When it was time to wrap him in fresh bandages, Curly nudged the old ones forward. With pleading blue eyes, he silently begged the caregiver to peel off those stickers and reapply them onto the new dressings.</p>
+                <p>Resting against the headboard, Curly gazed at the moon through the room's solitary window. It was small, distant, and dim—nothing like the moon displayed on the Tulpar's electronic screens.</p>
+                <p><strong>But this moon had no dead pixels hovering above it, nor would it perish beneath the swing of an axe.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; background: #eef2f5; padding: 15px; border-radius: 4px; font-size: 0.85rem; color: #555;">
+        <strong>💡 译者手记：</strong>
+        <ul style="margin: 5px 0 0 20px;">
+            <li><strong>情感传递：</strong> 在翻译“断臂”时使用了 <em>"residual limb"</em> (残肢/剩余肢体) 这一医学术语，比 "broken arm" 更符合疗养院的语境，冷酷的客观感。</li>
+            <li><strong>意象重构：</strong> 将原文简单的“贴纸”意译为 <em>"tiny universe stuck upon it"</em> (粘在上面的微型宇宙)，以突显这些贴纸对现在的船长而言，就是他仅存的世界。</li>
+            <li><strong>节奏控制：</strong> 最后一句使用了 <em>"nor would it perish..."</em> 的倒装句式，增强了文学性的宿命感，呼应原作压抑但平静的基调。</li>
+        </ul>
+    </div>
+</div>
+
+<div class="portfolio-item">
+    <h3>03. 碎片叙事：仿艾尔登法环物品描述</h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">碎片化叙事</span>
+        <span class="tag-pill">多风格驾驭</span>
+    </div>
+
+    <p style="font-size: 0.9rem; color: #666; margin-bottom: 25px;">
+        *在有限字数内，通过物品介绍侧面构建世界观。
+    </p>
+
+<div style="display: flex; gap: 25px; flex-wrap: wrap;">
+        
+        <div style="flex: 1; min-width: 300px; background: #1e1e1e; color: #cfd8dc; border-radius: 8px; overflow: hidden; border: 1px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <div style="padding: 20px; border-bottom: 1px solid #333; background: #263238; display: flex; align-items: center; gap: 15px;">
+                <div style="font-size: 2rem;">💾</div>
+                <div>
+                    <strong style="color: #4fc3f7; font-size: 1.1rem; display: block;">缓存图片：稚嫩涂鸦</strong>
+                    <div style="font-size: 0.8rem; color: #90a4ae;">Cached Image：Childish Sketch</div>
+                </div>
+            </div>
+            <div style="padding: 25px; font-size: 0.9rem; line-height: 1.7;">
+                <p style="color: #546e7a; margin-bottom: 20px; font-style: italic; font-size: 0.85rem;">
+                    [类型] 关键道具 / 无法删除<br>
+                    [Type] Key Item / Undeletable
+                </p>
+                <p style="margin-bottom: 15px;">
+                    一张笔触稚嫩的电子涂鸦，画着两个依偎在一起的Q版小人。文件名显示为“us”（我们）。
+                </p>
+                    <p style="color: #eceff1;">
+                    <br>在最后的5分钟里，他从已格式化的记忆里挖掘出这张画。
+                    <br><em>抓紧时间，抓紧时间。</em>
+                    <br><em>无论再经历多少遍，我一定会再一次，回想起她。</em>
+                <hr style="border: 0; border-top: 1px dashed #455a64; margin: 20px 0;">
+                <p style="font-family: Georgia, serif; color: #b0bec5; font-style: italic;">
+                    In the final five minutes, he salvaged this drawing from the ruins of formatted memory.<em>Seize the time. Seize the time.</em>No matter how many cycles I must endure, I will—without fail—remember her again."
+                </p>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; background: #2c2520; color: #d7ccc8; border-radius: 8px; overflow: hidden; border: 1px solid #3e2723; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <div style="padding: 20px; border-bottom: 1px solid #3e2723; background: #3e2723; display: flex; align-items: center; gap: 15px;">
+                <div style="font-size: 2rem;">💰️</div>
+                <div>
+                    <strong style="color: #ffca28; font-size: 1.1rem; display: block;">磨损的金币</strong>
+                    <div style="font-size: 0.8rem; color: #a1887f;">Worn-out Gold Coin</div>
+                </div>
+            </div>
+            <div style="padding: 25px; font-size: 0.9rem; line-height: 1.7;">
+                <p style="color: #8d6e63; margin-bottom: 20px; font-style: italic; font-size: 0.85rem;">
+                    [类型] 消耗品 / 某种遗物<br>
+                    [Type] Consumable / Relic
+                </p>
+                <p style="margin-bottom: 15px;">
+                    哑巴收税人私藏的唯一一枚金币。金币的表面被长年累月摩挲得发亮，混杂着硫磺与旧血的气息。
+                </p>
+                <p style="color: #efebe9;">
+                    他曾把金币覆在女儿的眼睛上，祈求卡戎载她前往至福乐土。他曾捧着金币交给赏金猎人，哀求杀死女儿的犯人得到报应。
+                    <br><br>
+                    到头来，除了觊觎灵魂的魔鬼，没有任何人给予他回应。
+                </p>
+                <hr style="border: 0; border-top: 1px dashed #5d4037; margin: 20px 0;">
+                <p style="font-family: Georgia, serif; color: #d7ccc8; font-style: italic;">
+                    He once placed it upon her eyes, praying for Charon's ferry; he once offered it for retribution. In the end, no answer came—save for the Devil, who hungered for his soul.
+                </p>
+            </div>
+        </div>
+    </div>
+
+<h2 id="analysis" class="section-title">游戏叙事与人设拆解</h2>
+<div class="portfolio-item">
+    <h3>FGO 2.7 纳维米克特兰：宏大叙事下的反英雄塑造</h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">世界观解构</span>
+        <span class="tag-pill">叙事节奏</span>
+        <span class="tag-pill">人物弧光</span>
+    </div>
+
+    <div style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 15px; border-radius: 4px; margin-bottom: 25px; font-size: 0.9rem; color: #555;">
+        <strong>🌎 世界观基底：</strong> 
+        <p style="margin: 5px 0 0 0;">
+            本章的核心在于<strong>“神话与进化的重构”</strong>——将阿兹特克神话中的“太阳纪”与生物学上的“恐龙进化”相结合。
+            <br>在这个残酷的优胜劣汰世界中，卡玛佐兹（Camazotz）作为一个被泛人类史遗忘的<strong>“Beast（人类恶）”</strong>，却成为了异闻带中唯一守护人类到最后的<strong>“王”</strong>。这种身份的悖论是他悲剧色彩的根源。
+        </p>
+    </div>
+    <div class="portfolio-meta">
+        <span class="tag-pill">叙事节奏</span>
+        <span class="tag-pill">人物弧光</span>
+        <span class="tag-pill">镜像角色设计</span>
+    </div>
+
+    <div style="margin-bottom: 30px;">
+        <h4 style="border-left: 4px solid var(--accent-color); padding-left: 10px; color: var(--primary-color);">
+            1.叙事节奏：从“小丑”到“悲剧之王”的三段式揭露
+        </h4>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">
+            分析剧本如何通过“厌恶-疑惑-共情”的情感曲线，完成对反派角色的洗白与升华。
+        </p>
+        
+        <div style="background: #f8f9fa; border-radius: 6px; padding: 20px;">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 15px;">
+                    <strong>第一阶段：建立刻板印象</strong><br>
+                    <span style="font-size: 0.9rem; color: #555;">
+                        初登场时，卡玛佐兹被设计为一个典型的“三流反派”。抢夺令咒、偷袭帝王花、发表暴论。这一阶段的设计意图是<strong>降低玩家期待</strong>，通过“小丑化”的行径掩盖其真实动机，为后期的反转积蓄势能。
+                    </span>
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong>第二阶段：植入认知偏差</strong><br>
+                    <span style="font-size: 0.9rem; color: #555;">
+                        随着剧情推进，出现了违背反派逻辑的行为：他主动阻止ORT的苏醒，甚至站在了同为“异闻带之王”的对立面。
+                        <br><em>关键伏笔：</em> 在与尼托克丽丝的对峙中，当提到“记得每一个死者的名字”时，他表现出的生理性厌恶（撤退）。这暗示了<strong>“记忆”</strong>是他核心的心理创伤，而非单纯的恶意。
+                    </span>
+                </li>
+                <li>
+                    <strong>第三阶段：真相与重构</strong><br>
+                    <span style="font-size: 0.9rem; color: #555;">
+                        揭露卡恩王朝的真相：他并非单纯的破坏者，而是独自背负百万国民性命、独自战胜ORT的“最后的人类”。
+                        <br>此时，之前所有的“疯狂”都有了合理的解释：他的疯狂并非来自邪恶，而是来自<strong>“独自背负所有记忆”的重量</strong>。
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <h4 style="border-left: 4px solid var(--accent-color); padding-left: 10px; color: var(--primary-color);">
+            2. 角色深度：主角的“黑暗镜像”
+        </h4>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">
+            卡玛佐兹的设计之所以动人，是因为他构成了对玩家角色（藤丸立香）的极致映射与对照。
+        </p>
+
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px; border: 1px solid #eee; border-radius: 6px; padding: 15px;">
+                <strong style="color: #2c3e50;">核心矛盾：记忆与遗忘</strong>
+                <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">
+                    他声称忘记了臣民，视其为“武器”，实则记得每一个人的牺牲。
+                    <br><strong>设计逻辑：</strong>这是一种<strong>防御机制</strong>。为了作为“王”活下去，他必须假装无情；但为了对得起同胞的死，他必须铭记一切。这种“想死却不能死”的矛盾，构建了他作为悲剧英雄的内核。
+                </p>
+            </div>
+
+            <div style="flex: 1; min-width: 300px; border: 1px solid #eee; border-radius: 6px; padding: 15px;">
+                <strong style="color: #2c3e50;">对照组：孤独的救世主</strong>
+                <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">
+                    他和藤丸立香一样，是各自世界“最后的人类御主”。
+                    <br><strong>差异点：</strong> 立香身边有玛修、迦勒底和英灵的陪伴；而卡玛佐兹是<strong>绝对的孤独</strong>。他的那句“我不理解（你的心情）”，恰恰是因为他理解了其中的残酷差异——他没有同伴。
+                </p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 20px; background: #fff8e1; padding: 15px; border-radius: 6px; font-size: 0.9rem; color: #666;">
+            <strong>🎨 视觉叙事：</strong> 
+            他在Boss战中的异化形态（龙/兽）不仅是力量的象征，更是<strong>代价的具象化</strong>。他在回忆中失去了手脚成为肉块，暗示了他为了换取打败ORT的力量，彻底舍弃了“人类的形态”，只留下了“守护人类”的执念。
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</div>
+    <h2 id="appendix" class="section-title">附录：游戏经历和个人偏好</h2>
+<div class="portfolio-item">
+    <h3>灵感库：塑造我的游戏与影视</h3>
+    <div class="portfolio-meta">
+        <span class="tag-pill">叙事审美</span>
+        <span class="tag-pill">阅历构成</span>
+        <span class="tag-pill">分析视角</span>
+    </div>
+
+    <p style="font-size: 0.9rem; color: #666; margin-bottom: 25px;">
+        Steam个人游戏数量182，游戏时长5000+，偏好宏大世界观/悬疑解谜/角色扮演
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+        
+        <div style="border: 1px solid #eee; border-radius: 8px; padding: 20px; background: #fff; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                <strong style="color: #2c3e50; font-size: 1.05rem;">Fate/Grand Order</strong>
+                <span style="background: #e3f2fd; color: #1976d2; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Game</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">
+                <strong>游玩时长：</strong> 2000h+ (简中服开服玩家)
+            </p>
+            <div style="font-size: 0.9rem; color: #444; background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #1976d2;">
+                <strong>💡策划视角的启发：</strong><br>
+                宏大叙事与商业抽卡的完美结合。学习了如何通过“群像视角”，让低星角色拥有人物弧光和高光时刻，让不同风格角色拥有高光和“厨力”变现能力。
+            </div>
+        </div>
+
+        <div style="border: 1px solid #eee; border-radius: 8px; padding: 20px; background: #fff; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                <strong style="color: #2c3e50; font-size: 1.05rem;">Elden Ring</strong>
+                <span style="background: #e3f2fd; color: #1976d2; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Game</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">
+                <strong>游玩时长：</strong> 300h+ (全成就)
+            </p>
+            <div style="font-size: 0.9rem; color: #444; background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #1976d2;">
+                <strong>💡策划视角的启发：</strong><br>
+                碎片化叙事的教科书。深刻理解了物品描述如何作为拼图，调动玩家的主观能动性去脑补完整的世界观。
+            </div>
+        </div>
+
+        <div style="border: 1px solid #eee; border-radius: 8px; padding: 20px; background: #fff; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                <strong style="color: #2c3e50; font-size: 1.05rem;">博德之门3</strong>
+                <span style="background: #e3f2fd; color: #1976d2; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Game</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">
+                <strong>核心体验：</strong> 文本流 DND
+            </p>
+            <div style="font-size: 0.9rem; color: #444; background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #1976d2;">
+                <strong>💡 策划视角的启发：</strong><br>
+                学习了DND世界观中宏大的世界构造和不同种族之间的矛盾和冲突，深刻体悟“力量”和“欲望”的主题故事。分支线成为个人西幻剧本的部分世界观来源。
+            </div>
+        </div>
+
+        <div style="border: 1px solid #eee; border-radius: 8px; padding: 20px; background: #fff; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                <strong style="color: #2c3e50; font-size: 1.05rem;">权力的游戏 (S1-S8)</strong>
+                <span style="background: #fff3e0; color: #e67e22; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">TV Show</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">
+                <strong>关键词：</strong> POV叙事、低魔中世纪
+            </p>
+            <div style="font-size: 0.9rem; color: #444; background: #fff8f0; padding: 10px; border-radius: 4px; border-left: 3px solid #e67e22;">
+                <strong>💡 策划视角的启发：</strong><br>
+                我的西幻剧本参考了其残酷现实主义的基调。学习了如何通过POV视角切换，让读者对对立阵营的角色产生共情。
+            </div>
+        </div>
+
+    </div>
+<div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #1a1a1a; color: #ddd; position: relative; min-height: 200px;">
+            <style>
+                .slider-container { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+                .slide { 
+                    position: absolute; width: 100%; height: 100%; 
+                    background-size: cover; background-position: center; 
+                    opacity: 0; animation: fadeLoop 12s infinite; 
+                    display: flex; align-items: flex-end;
+                }
+                /* 渐变遮罩，让文字看清 */
+                .slide::after {
+                    content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 60%;
+                    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+                }
+                .slide-text {
+                    position: relative; z-index: 2; padding: 15px; width: 100%;
+                }
+                /* 轮播动画逻辑 */
+                .slide:nth-child(1) { animation-delay: 0s; background-color: #2c3e50; } /* 备用背景色 */
+                .slide:nth-child(2) { animation-delay: 4s; background-color: #34495e; }
+                .slide:nth-child(3) { animation-delay: 8s; background-color: #2c2c2c; }
+
+                @keyframes fadeLoop {
+                    0% { opacity: 0; }
+                    10% { opacity: 1; }
+                    33% { opacity: 1; }
+                    43% { opacity: 0; }
+                    100% { opacity: 0; }
+                }
+            </style>
+
+<div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+        
+        <style>
+            details.game-category {
+                background: #fff;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+                transition: all 0.3s;
+            }
+            details.game-category[open] {
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                border-color: #ddd;
+            }
+            summary.category-header {
+                padding: 12px 20px;
+                cursor: pointer;
+                font-weight: bold;
+                color: #2c3e50;
+                background: #f8f9fa;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                list-style: none;
+                user-select: none;
+            }
+            summary.category-header:hover { background: #eef2f5; }
+            summary.category-header::after { content: '+'; font-size: 1.2rem; color: #999; font-weight: normal; }
+            details[open] summary.category-header::after { content: '-'; }
+            
+            /* 表格样式 */
+            .game-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+            .game-table tr { border-bottom: 1px solid #eee; }
+            .game-table tr:last-child { border-bottom: none; }
+            .game-table td { padding: 12px 20px; vertical-align: top; }
+            
+            /* 手机端适配：小屏幕下让表格变块状 */
+            @media (max-width: 600px) {
+                .game-table td { display: block; width: 100%; padding: 5px 20px; }
+                .game-table td:first-child { padding-top: 15px; font-weight: bold; }
+                .game-table td:last-child { padding-bottom: 15px; }
+            }
+
+            .tag-mini { 
+                display: inline-block; font-size: 0.75rem; padding: 1px 6px; 
+                border-radius: 3px; margin-left: 5px; font-weight: normal; vertical-align: middle;
+            }
+            .tag-hot { background: #ffebee; color: #c62828; }
+            .tag-time { background: #e3f2fd; color: #1565c0; }
+        </style>
+        <details class="game-category">
+            <summary class="category-header">📱商业手游 (Live Service)</summary>
+            <table class="game-table">
+                <tr>
+                    <td style="width: 35%; font-weight: bold; color: #333;">Fate/Grand Order <span class="tag-mini tag-time">2000h+</span></td>
+                    <td style="color: #666;"><strong>分析点：</strong>因Fate ip知名度在开服期间下载游戏，后续专注于不同神话、历史背景人物刻画、宏大叙事、角色解构。</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #333;">代号鸢</td>
+                    <td style="color: #666;"><strong>分析点：</strong>因架空历史与文案风格下载游戏，深度体验女性向权谋和叙事，游戏期间角色全收集&高难百分百通关，同世界观下练笔10w+字。</td>
+                </tr>
+            </table>
+        </details>
+        <details class="game-category" open>
+            <summary class="category-header">⚔️ 开放世界 & 动作类游戏</summary>
+            <table class="game-table">
+                <tr>
+                    <td style="width: 35%; font-weight: bold; color: #333;">博德之门 3 <span class="tag-mini tag-hot">年度最佳</span></td>
+                    <td style="color: #666;"><strong>分析点：</strong>400h，曾以该世界观写作练笔10w+，深度体会网状叙事的不同剧情支线和call back。</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #333;">艾尔登法环 <span class="tag-mini tag-time">全成就</span></td>
+                    <td style="color: #666;"><strong>分析点：</strong>200h全成就，碎片化叙事。世界观构造和宏大世界观解构。</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #333;">塞尔达传说 旷野之息&王国之泪</td>
+                    <td style="color: #666;"><strong>分析点：</strong>500h+，体验玩法与叙事结合、叙事为人设服务。</td>
+                </tr>
+            </table>
+        </details>
+
+                <details class="game-category">
+            <summary class="category-header">⭐放松休闲&模拟经营(AVG)</summary>
+            <table class="game-table">
+                <tr>
+                    <td style="width: 35%; font-weight: bold; color: #333;">星露谷物语
+                    <td style="color: #666;"><strong>分析点：</strong>400h，模拟经营，架空世界观&反战主题。</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #333;">潜水员戴夫</td>
+                    <td style="color: #666;"><strong>分析点：</strong>100h，休闲模拟经营&自然保护主题。</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #333;">饥荒</td>
+                    <td style="color: #666;"><strong>分析点：</strong>160h+，暗黑风生存策略，科技与魔法结合。</td>
+                </tr>
+                <tr>
+                    <td style="width: 35%; font-weight: bold; color: #333;">哈迪斯 (Hades I & II) <span class="tag-mini tag-time">全成就</span></td>
+                    <td style="color: #666;"><strong>分析点：</strong>200h+，神话体系和神话故事、神话角色现代解构。</td>
+                </tr>
+            </table>
+        </details>
+
+        <details class="game-category">
+            <summary class="category-header">📜文字冒险&悬疑解谜(AVG)</summary>
+            <table class="game-table">
+                <tr>
+                    <td style="width: 35%; font-weight: bold; color: #333;">人狼村之谜 <span class="tag-mini tag-hot">循环叙事</span></td>
+                    <td style="color: #666;"><strong>分析点：</strong>30h，体验狼人杀规则、死亡回溯和重复体验机制、民俗悬疑风格。</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #333;">海市蜃楼之馆</td>
+                    <td style="color: #666;"><strong>分析点：</strong>长篇剧情串联，人物角色反转塑造。</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #333;">宇宙之轮姐妹会</td>
+                    <td style="color: #666;"><strong>分析点：</strong>神秘学与女性向叙事。</td>
+                </tr>
+            </table>
+
+            </div> </div> </main> </div> </body>
+
+
+            <style media="print">
+<style media="print">
+    @page {
+        margin: 1cm; /* 只有 1cm 边距，够宽了 */
+        size: A4;
+    }
+
+    body {
+        background-color: #fff !important;
+        font-family: "Microsoft YaHei", sans-serif;
+        color: #000;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /* 1. 隐藏多余元素 */
+    .sidebar, .mobile-header, .tabs-header, footer, .confidential-stamp {
+        display: none !important;
+    }
+
+    /* 2. 宽度撑满，拒绝卫生纸 */
+    .app-container, .main-content {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 3. 核心修复：防止卡片被切断 */
+    .portfolio-item, .profile-card, details {
+        border: 1px solid #ccc !important;
+        margin-bottom: 20px !important;
+        padding: 20px !important;
+        page-break-inside: avoid !important; /* 关键：尽量不从中间切开 */
+        break-inside: avoid !important;
+    }
+
+    /* 4. 核心修复：防止标题和正文分家 (头身分离) */
+    h1, h2, h3, h4, h5, strong {
+        page-break-after: avoid !important; /* 关键：标题后面不许换页 */
+        break-after: avoid !important;
+    }
+
+    /* 5. 展开所有折叠内容 */
+    .tab-content, details, details > * {
+        display: block !important;
+    }
+    summary { display: none !important; }
+
+    /* 6. 给Tab和折叠区加标题 (保留这个好功能) */
+    #style-fable::before   { content: "1. 现代寓言"; font-weight: bold; display: block; margin-bottom: 5px; border-bottom: 1px solid #ddd; }
+    #style-ancient::before { content: "2. 古风权谋"; font-weight: bold; display: block; margin-bottom: 5px; border-bottom: 1px solid #ddd; }
+    #style-cyber::before   { content: "3. 赛博动作"; font-weight: bold; display: block; margin-bottom: 5px; border-bottom: 1px solid #ddd; }
+    #style-satire::before  { content: "4. 黑色幽默"; font-weight: bold; display: block; margin-bottom: 5px; border-bottom: 1px solid #ddd; }
+    #style-dark::before    { content: "5. 残酷美学"; font-weight: bold; display: block; margin-bottom: 5px; border-bottom: 1px solid #ddd; }
+    #style-soft::before    { content: "6. 唯美意象"; font-weight: bold; display: block; margin-bottom: 5px; border-bottom: 1px solid #ddd; }
+
+    /* 7. 让文字稍微紧凑一点，省纸 */
+    p, li { font-size: 10.5pt !important; line-height: 1.5 !important; }
+    h2 { margin-top: 30px !important; border-bottom: 2px solid #000 !important; }
+</style>
+</html>
